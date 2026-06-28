@@ -1,4 +1,4 @@
-# 🖼️ Background Remover API
+# Background Remover API
 
 REST API для удаления фона с изображений на основе нейронных сетей. Построен на **FastAPI**, использует модели из **HuggingFace Transformers**, разворачивается через **Docker**.
 
@@ -56,7 +56,12 @@ curl -X POST "http://localhost:8000/remove-bg" \
 ```
 test_case_triumf/
 ├── app/
-│   └── main.py          # Точка входа FastAPI, роуты
+│   └── main.py  # Точка входа FastAPI, роуты
+│   └── config.py # Конфиг проекта
+│   └── logger.py # Настройки логирования
+│   └── inference.py # Настройка модели для дальнейшего ее использования 
+│   └── models.py # Загрузка модели
+│   └── __init__.py      
 ├── Dockerfile            # Образ на python:3.11-slim
 ├── compose.yaml          # Docker Compose конфигурация
 ├── requirements.txt      # Зависимости Python

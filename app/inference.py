@@ -22,7 +22,6 @@ class BackgroundRemover:
 
         self.dtype = next(self.model.parameters()).dtype
 
-    # ---------- PREPROCESS ----------
     def preprocess(self, image: Image.Image):
         image = image.convert("RGB")
 
@@ -32,7 +31,6 @@ class BackgroundRemover:
 
         return img.to(DEVICE, dtype=self.dtype)
 
-    # ---------- INFERENCE ----------
     @torch.inference_mode()
     def infer(self, tensor):
         output = self.model(tensor)
@@ -56,7 +54,6 @@ class BackgroundRemover:
 
         return mask
 
-    # ---------- POSTPROCESS ----------
     def postprocess(self, mask, image: Image.Image):
         image = image.convert("RGBA")
 

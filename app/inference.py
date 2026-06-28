@@ -66,7 +66,6 @@ class BackgroundRemover:
 
         return rgba
 
-    # ---------- PIPE ----------
     def remove_background(self, image: Image.Image):
         tensor = self.preprocess(image)
         mask = self.infer(tensor)
